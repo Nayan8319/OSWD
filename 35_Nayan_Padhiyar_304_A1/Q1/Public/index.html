@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get Hello Route</title>
+</head>
+<body>
+  <h1 id="response">Waiting...</h1>
+  <script>
+    fetch('/gethello')
+      .then(res => res.text())
+      .then(data => document.getElementById('response').innerText = data);
+  </script>
+</body>
+</html>

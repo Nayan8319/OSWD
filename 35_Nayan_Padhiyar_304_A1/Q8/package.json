@@ -1,0 +1,16 @@
+{
+  "name": "q8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node test.js",
+    "sayhello": "echo Hello from custom script!",
+    "currentfile": "node -e \"console.log(process.cwd())\"",
+    "userdata": "node -e \"console.log(require('os').userInfo())\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
