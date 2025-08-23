@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<h1>Products</h1>
+<ul>
+  <% products.forEach(product => { %>
+    <li>
+      <a href="/product/<%= product._id %>"><%= product.name %></a> - $<%= product.price %>
+      <form action="/cart/add/<%= product._id %>" method="POST">
+        <button>Add to Cart</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+<%- include('../partials/footer') %>

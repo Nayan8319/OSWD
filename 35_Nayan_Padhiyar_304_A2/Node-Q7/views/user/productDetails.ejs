@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+<h1><%= product.name %></h1>
+<p><%= product.description %></p>
+<p>Price: $<%= product.price %></p>
+<p>Category: <%= product.category ? product.category.name : 'None' %></p>
+<form action="/cart/add/<%= product._id %>" method="POST">
+  <button>Add to Cart</button>
+</form>
+<%- include('../partials/footer') %>

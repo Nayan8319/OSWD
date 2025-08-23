@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+<h1>Your Cart</h1>
+<ul>
+  <% cart.forEach(item => { %>
+    <li>
+      <%= item.product.name %> x <%= item.quantity %> = $<%= item.product.price * item.quantity %>
+    </li>
+  <% }) %>
+</ul>
+<%- include('../partials/footer') %>

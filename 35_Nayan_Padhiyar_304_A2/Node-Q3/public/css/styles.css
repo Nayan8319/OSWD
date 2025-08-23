@@ -1,0 +1,157 @@
+/* Basic reset & variables */
+* { box-sizing: border-box; }
+:root {
+  --bg: #0f172a;            /* slate-900 */
+  --card: #111827;          /* gray-900 */
+  --muted: #9ca3af;         /* gray-400 */
+  --text: #e5e7eb;          /* gray-200 */
+  --primary: #2563eb;       /* blue-600 */
+  --primary-hover: #1d4ed8; /* blue-700 */
+  --secondary: #374151;     /* gray-700 */
+  --secondary-hover: #4b5563; /* gray-600 */
+  --error: #ef4444;         /* red-500 */
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: radial-gradient(1200px 800px at 10% 10%, #0b1229, var(--bg));
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+}
+
+/* Layout */
+.container {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  backdrop-filter: blur(6px);
+}
+
+/* Typography */
+.title {
+  margin: 0 0 18px;
+  font-size: 28px;
+  letter-spacing: 0.2px;
+}
+
+.muted {
+  color: var(--muted);
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.alert {
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+.alert-error {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #fecaca; /* red-200 */
+}
+
+/* Form */
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(17, 24, 39, 0.7); /* gray-900 w/ alpha */
+  color: var(--text);
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+input::placeholder {
+  color: #9aa4b2;
+}
+
+input:focus {
+  border-color: rgba(37, 99, 235, 0.75);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
+  background: rgba(17, 24, 39, 0.9);
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 120ms ease, filter 120ms ease, background 160ms ease;
+  text-decoration: none;
+  color: white;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--primary), var(--primary-hover));
+  box-shadow: 0 8px 20px rgba(37, 99, 235, .35);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background: linear-gradient(180deg, var(--secondary), var(--secondary-hover));
+  box-shadow: 0 8px 18px rgba(0,0,0,.25);
+}
+
+.btn-secondary:hover {
+  filter: brightness(1.05);
+}
+
+/* Utility */
+a {
+  color: #93c5fd;
+}
+a:hover {
+  text-decoration: underline;
+}
+

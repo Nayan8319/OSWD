@@ -1,0 +1,27 @@
+<h2>My Profile</h2>
+<div id="profile"></div>
+<a href="leave.html">Apply Leave</a>
+<button id="logout">Logout</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  const token = localStorage.getItem('token');
+
+  $.ajax({
+    url: '/profile',
+    headers: { 'Authorization': 'Bearer ' + token },
+    success: res => {
+      $('#profile').html(`
+        <p>Name: ${res.name}</p>
+        <p>Email: ${res.email}</p>
+        <p>Department: ${res.department || '-'}</p>
+      `);
+    },
+    error: () => window.location.href = '/login.html'
+  });
+
+  $('#logout').click(() => {
+    localStorage.removeItem('token');
+    window.location.href = '/login.html';
+  });
+</script>

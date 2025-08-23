@@ -1,0 +1,38 @@
+<h2>Leave Application</h2>
+<form id="leaveForm">
+  <input type="date" id="date" required>
+  <input type="text" id="reason" placeholder="Reason" required>
+  <button type="submit">Apply</button>
+</form>
+
+<h3>My Leaves</h3>
+<ul id="leaves"></ul>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  const token = localStorage.getItem('token');
+
+  function loadLeaves() {
+    $.ajax({
+      url: '/leave',
+      headers: { 'Authorization': 'Bearer ' + token },
+      success: res => {
+        $('#leaves').html(res.map(l => `<li>${new Date(l.date).toLocaleDateString()} - ${l.reason} - ${l.grant}</li>`).join(''));
+      },
+      error: () => window.location.href = '/login.html'
+    });
+  }
+
+  $('#leaveForm').submit(e => {
+    e.preventDefault();
+    $.ajax({
+      url: '/leave',
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer ' + token },
+      data: { date: $('#date').val(), reason: $('#reason').val() },
+      success: () => { loadLeaves(); $('#date').val(''); $('#reason').val(''); }
+    });
+  });
+
+  loadLeaves();
+</script>

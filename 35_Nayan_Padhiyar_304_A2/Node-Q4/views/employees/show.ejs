@@ -1,0 +1,16 @@
+<% layout('layout', { title: 'Employee Detail' }) %>
+<div class="card">
+  <h2><%= employee.name %> (<%= employee.empId %>)</h2>
+  <p><b>Email:</b> <%= employee.email %></p>
+  <p><b>Department:</b> <%= employee.department || '-' %></p>
+  <p><b>Role:</b> <%= employee.role %></p>
+  <h3>Salary</h3>
+  <ul>
+    <li>Basic: ₹<%= (employee.basic||0).toFixed(2) %></li>
+    <li>HRA: ₹<%= (employee.hra||0).toFixed(2) %></li>
+    <li>DA: ₹<%= (employee.da||0).toFixed(2) %></li>
+    <li>Allowance: ₹<%= (employee.allowance||0).toFixed(2) %></li>
+    <li>Deductions: -₹<%= (employee.deductions||0).toFixed(2) %></li>
+    <li><b>Net Salary:</b> ₹<%= employee.netSalary.toFixed(2) %></li>
+  </ul>
+</div>

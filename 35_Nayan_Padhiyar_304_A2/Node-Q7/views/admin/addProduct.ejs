@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+<h1>Add Product</h1>
+<form action="/admin/products/add" method="POST">
+  <label>Name:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label>Description:</label><br>
+  <textarea name="description" required></textarea><br><br>
+
+  <label>Price:</label><br>
+  <input type="number" name="price" step="0.01" required><br><br>
+
+  <label>Category:</label><br>
+  <select name="category" required>
+    <option value="">Select Category</option>
+    <% categories.forEach(cat => { %>
+      <option value="<%= cat._id %>">
+        <% if(cat.parent) { %> &nbsp;&nbsp;--<% } %> <%= cat.name %>
+      </option>
+    <% }) %>
+  </select><br><br>
+
+  <button type="submit">Add Product</button>
+</form>
+<%- include('../partials/footer') %>

@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<h1>Add Category</h1>
+<form action="/admin/categories/add" method="POST">
+  <label>Name:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label>Parent Category (optional):</label><br>
+  <select name="parent">
+    <option value="">Select Parent</option>
+    <% categories.forEach(cat => { %>
+      <option value="<%= cat._id %>"><%= cat.name %></option>
+    <% }) %>
+  </select><br><br>
+
+  <button type="submit">Add Category</button>
+</form>
+<%- include('../partials/footer') %>

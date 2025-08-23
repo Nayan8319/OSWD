@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Login</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div id="login-form">
+    <h2>Login</h2>
+    <input type="text" id="empId" placeholder="Employee ID">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <p id="error"></p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $('#loginBtn').click(() => {
+      $.post('/auth/login', {
+        empId: $('#empId').val(),
+        password: $('#password').val()
+      }).done(res => {
+        localStorage.setItem('token', res.token);
+        window.location.href = '/profile.html';
+      }).fail(err => {
+        $('#error').text(err.responseJSON.message);
+      });
+    });
+  </script>
+</body>
+</html>

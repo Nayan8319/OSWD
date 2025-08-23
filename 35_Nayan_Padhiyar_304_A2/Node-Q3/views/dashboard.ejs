@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h2 class="title">Welcome, <%= user %>!</h2>
+      <p class="muted">This is a protected dashboard (session stored in Redis).</p>
+      <a href="/logout" class="btn btn-secondary">Logout</a>
+    </section>
+  </main>
+</body>
+</html>

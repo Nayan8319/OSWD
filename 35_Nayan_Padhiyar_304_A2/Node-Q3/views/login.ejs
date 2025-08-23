@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h2 class="title">Login</h2>
+
+      <% if (error) { %>
+        <div class="alert alert-error"><%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/login" class="form">
+        <div class="form-row">
+          <label for="username">Username</label>
+          <input id="username" type="text" name="username" placeholder="Enter username" required>
+        </div>
+
+        <div class="form-row">
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

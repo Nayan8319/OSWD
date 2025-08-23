@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+<h1>Products</h1>
+<a href="/admin/products/add">Add New Product</a>
+<ul>
+  <% products.forEach(product => { %>
+    <li>
+      <%= product.name %> - $<%= product.price %> | 
+      Category: <%= product.category ? product.category.name : 'None' %>
+    </li>
+  <% }) %>
+</ul>
+<%- include('../partials/footer') %>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title><%= typeof title !== 'undefined' ? title : 'ERP Admin' %></title>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 0; padding: 16px; background:#0f172a; color:#e5e7eb; }
+    header, footer { margin-bottom: 16px; }
+    a { color:#93c5fd; }
+    .nav a { margin-right: 8px; }
+    .card { background:#111827; border:1px solid #1f2937; border-radius:12px; padding:16px; }
+    input, select { padding:8px; border-radius:8px; border:1px solid #374151; background:#0b1020; color:#e5e7eb; width:100%; }
+    label { font-size: 14px; color:#9ca3af; }
+    table { width:100%; border-collapse: collapse; }
+    th, td { border-bottom:1px solid #1f2937; padding:10px; text-align:left; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; background:#2563eb; color:#fff; }
+    .btn.secondary { background:#374151; }
+    .row { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px; }
+    .row-1 { display:grid; grid-template-columns: 1fr; gap:12px; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a href="/employees">Employees</a>
+    <a href="/employees/new">Add Employee</a>
+    <% if (user) { %>
+      <span style="margin-left:10px;">Logged in as <b><%= user %></b></span>
+      <a href="/logout" class="btn secondary" style="margin-left:10px;">Logout</a>
+    <% } %>
+  </header>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <footer>
+    <small>&copy; ERP Admin</small>
+  </footer>
+</body>
+</html>

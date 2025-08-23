@@ -1,0 +1,34 @@
+<% layout('layout', { title: 'Employees' }) %>
+<div class="card">
+  <h2>Employees</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>EmpID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Dept</th>
+        <th>Net Salary</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% employees.forEach(e => { %>
+      <tr>
+        <td><%= e.empId %></td>
+        <td><%= e.name %></td>
+        <td><%= e.email %></td>
+        <td><%= e.department || '-' %></td>
+        <td>₹<%= e.netSalary ? e.netSalary.toFixed(2) : '0.00' %></td>
+        <td>
+          <a class="btn secondary" href="/employees/<%= e._id %>">View</a>
+          <a class="btn secondary" href="/employees/<%= e._id %>/edit">Edit</a>
+          <form method="POST" action="/employees/<%= e._id %>?_method=DELETE" style="display:inline;">
+            <button class="btn" style="background:#ef4444; border:0;" onclick="return confirm('Delete?')">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+</div>
