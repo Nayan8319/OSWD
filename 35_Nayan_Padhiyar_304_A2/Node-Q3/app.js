@@ -5,20 +5,16 @@ const RedisStore = require("connect-redis")(session);
 const Redis = require("ioredis");
 const bodyParser = require("body-parser");
 const path = require("path");
-
 const app = express();
-
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 const redisClient = new Redis({
   host: "127.0.0.1",
   port: 6379
 });
-
 
 app.use(
   session({
@@ -29,16 +25,13 @@ app.use(
     cookie: { maxAge: 1000 * 60 * 5 }
   })
 );
-
 // Fake user (demo)
-const USER = { username: "admin", password: "12345" };
-
+const USER = { username: "user", password: "user" };
 // Routes
 app.get("/", (req, res) => {
   if (req.session.user) return res.redirect("/dashboard");
   res.render("login", { error: null });
 });
-
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
 

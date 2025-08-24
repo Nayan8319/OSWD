@@ -1,23 +1,23 @@
 /* Basic reset & variables */
 * { box-sizing: border-box; }
 :root {
-  --bg: #0f172a;            /* slate-900 */
+  --bg: #b8c5e4;            /* slate-900 */
   --card: #111827;          /* gray-900 */
   --muted: #9ca3af;         /* gray-400 */
-  --text: #e5e7eb;          /* gray-200 */
+  --text: #0c121e;          /* gray-200 */
   --primary: #2563eb;       /* blue-600 */
   --primary-hover: #1d4ed8; /* blue-700 */
-  --secondary: #374151;     /* gray-700 */
+  --secondary: #d3d7df;     /* gray-700 */
   --secondary-hover: #4b5563; /* gray-600 */
   --error: #ef4444;         /* red-500 */
-  --radius: 14px;
+  --radius: 5px;
   --shadow: 0 10px 30px rgba(0,0,0,.35);
 }
 
 html, body {
   height: 100%;
   margin: 0;
-  background: radial-gradient(1200px 800px at 10% 10%, #0b1229, var(--bg));
+  /* background: radial-gradient(1200px 800px at 10% 10%, #0b1229, var(--bg)); */
   color: var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.5;
@@ -105,7 +105,7 @@ input::placeholder {
 input:focus {
   border-color: rgba(37, 99, 235, 0.75);
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
-  background: rgba(17, 24, 39, 0.9);
+  background: rgba(231, 233, 239, 0.9);
 }
 
 /* Buttons */
