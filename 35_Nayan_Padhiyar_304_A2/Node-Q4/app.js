@@ -6,7 +6,7 @@ const MongoStore = require('connect-mongo');
 const methodOverride = require('method-override');
 const path = require('path');
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 
 const Employee = require('./models/Employee');
